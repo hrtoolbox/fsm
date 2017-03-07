@@ -2,10 +2,8 @@ defmodule Fsm do
   defmacro __using__(opts) do
     quote do
       import Fsm
-
-      defstruct [state: unquote(opts[:initial_state]),
-                 data:  unquote(opts[:initial_data])]
-
+      defstruct [:state, :data]
+      
       @declaring_state nil
       @declared_events MapSet.new
 
